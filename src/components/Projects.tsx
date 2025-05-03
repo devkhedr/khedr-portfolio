@@ -1,0 +1,130 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaExpand } from 'react-icons/fa';
+
+const projects = [
+  {
+    title: 'User Management System',
+    desc: 'Auth, profiles, and RBAC built with Spring Boot & Spring Security.',
+    tech: 'Spring Boot, Spring Security, MySQL',
+    link: 'https://github.com/devkhedr/UserManagementSystem',
+    details: 'A robust system for user authentication, profile management, and role-based access control. Features include secure JWT authentication, user role management, and a scalable MySQL database.',
+  },
+  {
+    title: 'Music Platform Web App',
+    desc: 'RESTful backend for artists & albums with role-based access.',
+    tech: 'Django, DRF, Pytest',
+    link: 'https://github.com/devkhedr/MusicPlatformWebApp',
+    details: 'A music platform backend with RESTful APIs for managing artists, albums, and playlists. Includes role-based access control, comprehensive unit tests with Pytest, and a clean Django architecture.',
+  },
+];
+
+const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<null | typeof projects[number]>(null);
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
+  return (
+    <section id="projects" className="section-container py-16 px-6 relative">
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-200 shine-effect">
+          Projects
+        </h2>
+        <p className="text-gray-300 text-lg mt-2 max-w-2xl mx-auto">
+          A showcase of my work, blending creativity and technical expertise.
+        </p>
+      </motion.div>
+
+      <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className="glass-effect parallax-card p-4 rounded-lg max-w-xs mx-auto relative overflow-hidden"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05, rotateX: 5, rotateY: 5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(245,245,245,0.1)] to-transparent z-0"></div>
+            <div className="relative z-10">
+              <h3 className="text-xl font-bold text-gray-200 shine-effect mb-2">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 text-sm mb-3">{project.desc}</p>
+              <p className="text-gray-200 text-xs mb-3 italic">{project.tech}</p>
+              <div className="flex gap-2">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gradient-button flex items-center gap-2 text-sm px-3 py-1"
+                >
+                  <FaGithub /> View Code
+                </a>
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="gradient-button flex items-center gap-2 text-sm px-3 py-1"
+                >
+                  <FaExpand /> Expand
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {selectedProject && (
+        <motion.div
+          className="fixed inset-0 flex items-center justify-center z-50 p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedProject(null)}
+        >
+          <motion.div
+            className="modal p-6 max-w-lg w-full"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-2xl font-bold text-gray-200 shine-effect mb-4">
+              {selectedProject.title}
+            </h3>
+            <p className="text-gray-300 text-base mb-4">{selectedProject.details}</p>
+            <p className="text-gray-200 text-sm mb-4 italic">{selectedProject.tech}</p>
+            <div className="flex gap-4">
+              <a
+                href={selectedProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gradient-button flex items-center gap-2"
+              >
+                <FaGithub /> View Code
+              </a>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="gradient-button px-4 py-2"
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </section>
+  );
+};
+
+export default Projects;
