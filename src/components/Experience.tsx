@@ -17,12 +17,12 @@ function Experience() {
     },
     {
       company: 'bld.ai',
-      role: 'Full Stack Dveloper Intern',
+      role: 'Full Stack Developer Intern',
       duration: 'Aug 2022 - Nov 2022',
       description: [
         'Gained hands-on experience in full-stack development workflows, clean code practices, and Git version control.',
-        'Developed backend for a Music Platform Web App using Django and REST API.',
-        'Developed a Udemy-like home page and courses page using ReactJS.',
+        'Implemented authentication systems using JWT and OAuth.',
+        'Collaborated with cross-functional teams to deliver features.',
       ],
     },
   ];
@@ -44,14 +44,14 @@ function Experience() {
         </p>
       </motion.div>
 
-      <div className="relative max-w-3xl mx-auto">
+      <div className="relative max-w-4xl mx-auto">
         {/* Timeline Line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-400/50 h-full"></div>
 
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            className={`relative mb-12 glass-effect p-6 md:p-8 rounded-lg max-w-md ${
+            className={`relative mb-12 glass-effect p-6 rounded-lg max-w-xl w-full ${
               index % 2 === 0 ? 'ml-auto' : 'mr-auto'
             } hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300`}
             initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
