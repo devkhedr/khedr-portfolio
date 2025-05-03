@@ -41,42 +41,42 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="section-container py-24 px-6 relative">
+    <section id="contact" className="section-container py-32 px-6 relative">
       <motion.div
-        className="text-center mb-12"
+        className="text-center mb-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-200 shine-effect">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-200 shine-effect">
           Let's Connect
         </h2>
-        <p className="text-gray-300 text-lg mt-2 max-w-2xl mx-auto">
-          Reach out to discuss code, challenges, or opportunities.
+        <p className="text-gray-300 text-xl mt-4 max-w-3xl mx-auto">
+          Whether you have a question, an opportunity, or just want to say hi, feel free to reach out. I'm always open to discussing new ideas and collaborations.
         </p>
       </motion.div>
 
-      <div className="flex flex-col items-center gap-8">
+      <div className="flex flex-col items-center gap-12">
         <motion.a
           href="mailto:your.email@example.com" // Replace with your email
-          className="gradient-button flex items-center gap-2 text-lg px-8 py-4 rounded-[20px]"
+          className="gradient-button flex items-center gap-4 text-xl px-12 py-6 rounded-[30px]"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <FaPaperPlane /> Send Me a Message
+          <FaPaperPlane className="text-2xl" /> Send Me a Message
         </motion.a>
 
-        <div className="flex gap-4 flex-wrap justify-center">
+        <div className="flex gap-6 flex-wrap justify-center">
           {socialLinks.map((link, index) => (
             <motion.a
               key={index}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-effect w-10 h-10 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_15px_rgba(245,245,245,0.5)] transition-all duration-300"
+              className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
               variants={iconVariants}
               initial="hidden"
               whileInView="visible"
@@ -87,11 +87,27 @@ function Contact() {
             </motion.a>
           ))}
         </div>
+      </div>
 
-        <p className="royal-copyright">
+      {/* Footer Section */}
+      <footer className="mt-16 pt-8 border-t border-gray-700 text-center absolute bottom-4 w-full">
+        <div className="flex gap-4 justify-center mb-4">
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-gray-200 transition-colors duration-300"
+            >
+              {link.icon}
+            </a>
+          ))}
+        </div>
+        <p className="text-gray-400 text-sm">
           © 2025 Mohamed Khedr. All rights reserved.
         </p>
-      </div>
+      </footer>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaRocket } from 'react-icons/fa';
+import { FaRocket, FaPaperPlane, FaLinkedin, FaTelegram, FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 import profileImage from '../assets/image.png';
 
@@ -62,8 +62,64 @@ function About() {
               transition={{ duration: 0.8, delay: 0.8 }}
               viewport={{ once: true }}
             >
-              {description}
+              Full Stack Developer passionate about backend engineering, problem-solving, and building clean, scalable systems. ACPC Finalist & Competitive Programmer with 2500+ problems solved across multiple platforms.
             </motion.p>
+
+            <motion.div
+              className="flex flex-wrap justify-center md:justify-start gap-4 mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              viewport={{ once: true }}
+            >
+              <a
+                href="mailto:your.email@example.com"
+                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+              >
+                <FaPaperPlane className="text-xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/muhamed-khedr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+              >
+                <FaLinkedin className="text-xl" />
+              </a>
+              <a
+                href="https://t.me/mohameed07"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+              >
+                <FaTelegram className="text-xl" />
+              </a>
+              <a
+                href="https://www.facebook.com/khedr07"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+              >
+                <FaFacebook className="text-xl" />
+              </a>
+              <a
+                href="https://x.com/devkhedr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+              >
+                <FaTwitter className="text-xl" />
+              </a>
+              <a
+                href="https://wa.me/+201113219719"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+              >
+                <FaWhatsapp className="text-xl" />
+              </a>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}

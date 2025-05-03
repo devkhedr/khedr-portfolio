@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { FaStar } from 'react-icons/fa';
 
 function Education() {
   const education = [
@@ -11,13 +10,8 @@ function Education() {
     },
   ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-  };
-
   return (
-    <section id="education" className="section-container py-16 px-6 relative bg-gradient-to-b from-[rgba(245,245,245,0.05)] to-transparent">
+    <section id="education" className="section-container py-16 px-6 relative">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 50 }}
@@ -25,50 +19,36 @@ function Education() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-200 shine-effect">
-          Cosmic Academic Journey
+        <h2 className="text-4xl font-bold text-gray-200 shine-effect">
+          My Academic Journey
         </h2>
         <p className="text-gray-300 text-lg mt-2 max-w-2xl mx-auto">
-          A stellar foundation forged in the galaxies of knowledge.
+          A creative and dynamic path through education.
         </p>
       </motion.div>
 
-      <div className="max-w-4xl mx-auto">
+      <div className="relative max-w-4xl mx-auto">
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-yellow-400 to-gray-700 h-full"></div>
         {education.map((edu, index) => (
           <motion.div
             key={index}
-            className="education-card text-center relative"
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
+            className={`relative mb-8 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05, rotateY: 10 }}
-            transition={{ duration: 0.3 }}
           >
-            {/* Sparkle effects */}
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="sparkle-effect"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 1.5}s`,
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-            ))}
-            <h3 className="text-2xl font-bold text-gray-200 shine-effect mb-2">
-              {edu.degree}
-            </h3>
-            <p className="text-lg text-gray-200 shine-effect mb-1">{edu.institution}</p>
-            <div className="flex items-center justify-center gap-2 text-base text-yellow-400 mb-1">
-              <FaStar />
-              <span>{edu.duration}</span>
+            <div className={`inline-block p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg shadow-lg relative z-10 ${index % 2 === 0 ? 'ml-8' : 'mr-8'}`}>
+              <h3 className="text-xl font-bold text-yellow-400 mb-2">{edu.degree}</h3>
+              <p className="text-lg text-gray-300 mb-1">{edu.institution}</p>
+              <p className="text-sm text-gray-400 mb-1">{edu.duration}</p>
+              <p className="text-sm text-yellow-400">{edu.details}</p>
             </div>
-            <p className="text-base text-yellow-400">{edu.details}</p>
+            <div
+              className={`absolute top-1/2 transform -translate-y-1/2 w-6 h-6 bg-gradient-to-br from-yellow-400 to-gray-700 rounded-full shadow-lg ${
+                index % 2 === 0 ? 'left-1/2 -ml-3' : 'right-1/2 -mr-3'
+              }`}
+            ></div>
           </motion.div>
         ))}
       </div>
