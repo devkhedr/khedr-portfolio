@@ -5,32 +5,32 @@ function Contact() {
   const socialLinks = [
     {
       name: 'Facebook',
-      url: 'https://facebook.com/yourprofile', // Replace with your profile
+      url: 'https://www.facebook.com/khedr07',
       icon: <FaFacebook />,
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/mohamed-khedr',
+      url: 'https://www.linkedin.com/in/muhamed-khedr/',
       icon: <FaLinkedin />,
     },
     {
       name: 'Instagram',
-      url: 'https://instagram.com/yourprofile', // Replace with your profile
+      url: 'https://www.instagram.com/muhamed_khedr7/',
       icon: <FaInstagram />,
     },
     {
       name: 'Telegram',
-      url: 'https://t.me/yourprofile', // Replace with your profile
+      url: 'https://t.me/mohameed07',
       icon: <FaTelegram />,
     },
     {
       name: 'Twitter',
-      url: 'https://x.com/yourprofile', // Replace with your profile
+      url: 'https://x.com/devkhedr',
       icon: <FaTwitter />,
     },
     {
       name: 'WhatsApp',
-      url: 'https://wa.me/yourphonenumber', // Replace with your phone number
+      url: 'https://wa.me/+201113219719',
       icon: <FaWhatsapp />,
     },
   ];
@@ -89,7 +89,7 @@ function Contact() {
         </div>
 
         <p className="royal-copyright">
-          © 2025 Mohamed Khedr, Galacticode King, All rights reserved.
+          © 2025 Mohamed Khedr. All rights reserved.
         </p>
       </div>
     </section>
