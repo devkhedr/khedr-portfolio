@@ -51,7 +51,7 @@ function Navbar() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="section-container flex items-center justify-between p-4">
+      <div className="navbar-section-container flex items-center justify-between p-4">
         <motion.div
           className="flex items-center space-x-2 text-xl font-bold text-gray-200 tracking-wide"
           initial={{ opacity: 0 }}
