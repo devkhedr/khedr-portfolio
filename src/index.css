@@ -76,7 +76,6 @@ body::after {
   100% { transform: translateY(0); opacity: 0.1; }
 }
 
-
 .typewriter {
   display: inline-block;
   overflow: hidden;
@@ -135,9 +134,58 @@ body::after {
 .section-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem;
+  padding-bottom: 6rem; 
+  margin-bottom: 4rem;
   position: relative;
   z-index: 10;
+}
+.navbar-section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.education-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 215, 0, 0.1));
+  backdrop-filter: blur(15px);
+  border: 2px solid #FFD700; /* Gold border */
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(
+    20% 0%,
+    80% 0%,
+    100% 20%,
+    100% 80%,
+    80% 100%,
+    20% 100%,
+    0% 80%,
+    0% 20%
+  ); /* Star-like shape */
+}
+
+.education-card:hover {
+  box-shadow: 0 12px 48px rgba(255, 215, 0, 0.7);
+}
+
+/* Sparkle effect for education card */
+.sparkle-effect {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #FFD700;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+  animation: sparkle-move 1.5s linear infinite;
+}
+
+@keyframes sparkle-move {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  100% { transform: translateY(-80px) translateX(40px); opacity: 0; }
 }
 
 .profile-image {
@@ -155,7 +203,6 @@ body::after {
 .royal-frame {
   position: relative;
 }
-
 
 h1, h2, h3 {
   font-family: 'Cinzel', serif;
@@ -202,6 +249,7 @@ a:hover, button:hover {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(8px);
 }
+
 .shine-effect {
   background: linear-gradient(
     90deg,
@@ -210,8 +258,6 @@ a:hover, button:hover {
     #C0C0C0 100%
   );
   background-size: 200% 100%;
-  background-clip: text;
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s infinite;
@@ -342,7 +388,7 @@ a:hover, button:hover {
   border: 1px solid rgba(192, 192, 192, 0.6);
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-} 
+}
 
 .royal-copyright {
   font-size: 0.65rem;
