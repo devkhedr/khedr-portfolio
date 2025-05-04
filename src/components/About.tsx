@@ -18,9 +18,7 @@ function About() {
           overflow: 'visible',
           width: 'auto',
         }}
-      >
-        |
-      </span>
+      ></span>
     </>
   );
 
