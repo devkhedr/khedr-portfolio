@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { FaFacebook, FaLinkedin, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaTelegram, FaTwitter, FaGithub, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 function Contact() {
   const socialLinks = [
     {
-      name: 'Facebook',
-      url: 'https://www.facebook.com/khedr07',
-      icon: <FaFacebook />,
+      name: 'GitHub',
+      url: 'https://github.com/devkhedr',
+      icon: <FaGithub />,
     },
     {
       name: 'LinkedIn',
@@ -59,14 +59,14 @@ function Contact() {
 
       <div className="flex flex-col items-center gap-12">
         <motion.a
-          href="mailto:your.email@example.com" // Replace with your email
+          href="mailto:mohamed.khedr.dev@gmail.com" // Replace with your email
           className="gradient-button flex items-center gap-4 text-xl px-12 py-6 rounded-[30px]"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <FaPaperPlane className="text-2xl" /> Send Me a Message
+          <FaEnvelope className="text-2xl" /> Send Me a Message
         </motion.a>
 
         <div className="flex gap-6 flex-wrap justify-center">

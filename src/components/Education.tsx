@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { FaGraduationCap } from 'react-icons/fa';
 
 function Education() {
   const education = [
@@ -27,28 +28,25 @@ function Education() {
         </p>
       </motion.div>
 
-      <div className="relative max-w-4xl mx-auto">
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-yellow-400 to-gray-700 h-full"></div>
+      <div className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {education.map((edu, index) => (
           <motion.div
             key={index}
-            className={`relative mb-8 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-6 bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <div className={`inline-block p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg shadow-lg relative z-10 ${index % 2 === 0 ? 'ml-8' : 'mr-8'}`}>
+            <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-yellow-400 to-gray-700 rounded-full flex items-center justify-center shadow-lg">
+              <FaGraduationCap className="text-2xl text-gray-900" />
+            </div>
+            <div>
               <h3 className="text-xl font-bold text-yellow-400 mb-2">{edu.degree}</h3>
               <p className="text-lg text-gray-300 mb-1">{edu.institution}</p>
               <p className="text-sm text-gray-400 mb-1">{edu.duration}</p>
               <p className="text-sm text-yellow-400">{edu.details}</p>
             </div>
-            <div
-              className={`absolute top-1/2 transform -translate-y-1/2 w-6 h-6 bg-gradient-to-br from-yellow-400 to-gray-700 rounded-full shadow-lg ${
-                index % 2 === 0 ? 'left-1/2 -ml-3' : 'right-1/2 -mr-3'
-              }`}
-            ></div>
           </motion.div>
         ))}
       </div>
