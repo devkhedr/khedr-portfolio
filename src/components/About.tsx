@@ -4,8 +4,27 @@ import { Link } from 'react-scroll';
 import profileImage from '../assets/image.png';
 
 function About() {
-  const description = "Full Stack Developer passionate about backend engineering, problem-solving, and building clean, scalable systems. ACPC Finalist & Competitive Programmer with 2500+ problems solved across multiple platforms.";
-  const summary = "I'm a dedicated Full Stack Developer with a strong foundation in backend engineering, crafting robust and scalable systems using technologies like Node.js, Django, and Spring Boot. My passion for problem-solving shines through in my competitive programming journey, where I've tackled over 2500 problems on platforms like LeetCode and Codeforces, earning a spot as an ACPC Finalist. I thrive on building clean, efficient code and delivering seamless user experiences through modern frontend frameworks like React. My work blends technical expertise with creativity, aiming to push boundaries and conquer challenges in every project.";
+  const description = (
+    <>
+      A dedicated Software Engineer with over a year of experience in full-stack development, focused on building secure
+      and high-quality web applications. Strong problem-solving skills as an ACPC finalist, with a passion for backend
+      architecture, performance optimization, and exploring new technologies.
+      <span
+        className="blinking-cursor"
+        style={{
+          borderRight: '1px solid #F5F5F5',
+          animation: 'blink 0.75s step-end infinite',
+          whiteSpace: 'nowrap',
+          overflow: 'visible',
+          width: 'auto',
+        }}
+      >
+        |
+      </span>
+    </>
+  );
+
+  const summary = "I am a passionate Software Engineer with over a year of experience in full-stack development, specializing in designing and building secure, scalable, and high-performance web applications. My expertise lies in backend development, where I excel in creating RESTful APIs, implementing authentication systems, and optimizing performance using technologies like Django, FastAPI, and Spring Boot. As an ACPC finalist and competitive programmer, I have honed my problem-solving skills by tackling over 2500 algorithmic challenges on platforms like LeetCode and Codeforces.\n\nIn my professional journey, I have collaborated on innovative projects, including developing a WhatsApp chatbot for automated message handling and building a music platform backend. I am proficient in containerizing applications with Docker, managing background tasks with Celery and Redis, and ensuring code quality through rigorous testing and reviews. My passion for technology drives me to explore new tools and frameworks, deliver clean and maintainable code, and create impactful solutions that address real-world challenges.\n\nBeyond coding, I am committed to fostering collaboration, mentoring peers, and contributing to a culture of continuous learning and innovation. Whether it's leading a team to victory in a hackathon or mentoring students in competitive programming, I thrive on pushing boundaries and achieving excellence in every endeavor.";
 
   return (
     <section id="about" className="section-container py-16 px-6 relative">
@@ -18,7 +37,7 @@ function About() {
         viewport={{ once: true }}
       >
         <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-gradient-to-b from-transparent via-[rgba(245,245,245,0.05)] to-transparent animate-pulse"></div>
+          {/* Removed the background gradient */}
         </div>
 
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
@@ -56,8 +75,7 @@ function About() {
               Crafting Code, Conquering Challenges
             </motion.p>
             <motion.p
-              className="text-base md:text-lg text-gray-300 typewriter mb-8"
-              style={{ borderRight: '1px solid #F5F5F5', animation: 'typing 4s steps(80, end) forwards, blink 0.75s step-end infinite', maxWidth: '100%' }}
+              className="text-base md:text-lg text-gray-300 mb-8 max-w-full"
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0 }}
@@ -132,7 +150,7 @@ function About() {
                 smooth={true}
                 duration={1000}
                 offset={-70}
-                className="gradient-button flex items-center gap-2 cursor-pointer hover:shadow-[0_0_8px_rgba(245,245,245,0.2)] transition-all duration-300"
+                className="gradient-button flex items-center gap-2 cursor-pointer hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
               >
                 <FaRocket /> Explore My Work
               </Link>
@@ -152,9 +170,22 @@ function About() {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-200 shine-effect mb-8">
           About Me
         </h2>
-        <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-          {summary}
-        </p>
+        <div className="glass-effect text-[#F5F5F5] p-6 relative animate-pulse">
+          <div className="sparkle-effect" style={{ top: '10%', left: '5%' }}></div>
+          <div className="sparkle-effect" style={{ top: '20%', left: '90%' }}></div>
+          <div className="sparkle-effect" style={{ top: '70%', left: '10%' }}></div>
+          <div className="flex items-center mb-4">
+            <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          </div>
+          <pre
+            className="text-left text-sm md:text-base leading-relaxed whitespace-pre-wrap royal-copyright"
+            style={{ fontSize: '1rem', fontFamily: 'Montserrat, sans-serif' }}
+          >
+            {summary}
+          </pre>
+        </div>
       </motion.div>
     </section>
   );

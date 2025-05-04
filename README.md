@@ -1,36 +1,53 @@
-# React + TypeScript + Vite + Tailwind
+# Khedr Portfolio 🚀
 
-This template provides a minimal setup to get React working in Vite, TypeScript, and Tailwind.
+Welcome to my personal portfolio project! This is a modern, responsive, and visually stunning portfolio built using cutting-edge web technologies. It showcases my skills, projects, and professional journey in an elegant and interactive way.
 
-## Getting Started 🚀
+## 🌟 Features
 
-1. Clone the repo.
-2. Install dependencies: `pnpm install`
-3. Start the dev server: `pnpm dev`
+- **Responsive Design**: Fully optimized for all devices, from desktops to smartphones.
+- **Interactive Animations**: Smooth transitions and hover effects for an engaging user experience.
+- **Tech Stack Display**: Highlights the technologies used in each project and experience.
+- **Dark Mode**: A sleek dark theme for better readability and aesthetics.
+- **Dynamic Content**: Easily customizable to fit your personal or professional needs.
 
-### Or
+## 🛠️ Tech Stack
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoinulmoin%2Fvite-react-tailwind-starter)
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Simple Icons
+- **Deployment**: Vercel
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Follow these steps to run the project locally:
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/khedr-portfolio.git
+   ```
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+2. **Navigate to the Project Directory**:
+   ```bash
+   cd khedr-portfolio
+   ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-## License 📄
+4. **Start the Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-[MIT License](https://github.com/moinulmoin/vite-react-tailwind-starter/blob/master/LICENSE)
+5. **Build for Production**:
+   ```bash
+   npm run build
+   ```
+
+6. **Preview the Build**:
+   ```bash
+   npm run preview
+   ```
