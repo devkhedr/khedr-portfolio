@@ -6,7 +6,9 @@ import profileImage from '../assets/image.png';
 function About() {
   const description = (
     <>
-      Full Stack Developer passionate about backend engineering, problem-solving, and building clean, scalable systems. ACPC Finalist & Competitive Programmer with 2500+ problems solved across multiple platforms.
+      A dedicated Software Engineer with over a year of experience in full-stack development, focused on building secure
+      and high-quality web applications. Strong problem-solving skills as an ACPC finalist, with a passion for backend
+      architecture, performance optimization, and exploring new technologies.
       <span
         className="blinking-cursor"
         style={{
@@ -17,11 +19,12 @@ function About() {
           width: 'auto',
         }}
       >
-        
+        |
       </span>
     </>
   );
-  const summary = "Software Engineer with over a year of experience in designing and developing scalable, secure, and high-performance web applications. A passionate backend developer with expertise in Django, FastAPI, and Spring Boot, focusing on RESTful APIs, authentication, and performance optimization. As an ACPC finalist and competitive programmer, I have solved over 2500 algorithmic problems, showcasing strong problem-solving skills and attention to detail. My technical journey includes building robust systems, containerizing applications with Docker, and collaborating on innovative projects like assistive mobile apps and music platforms. I thrive on exploring new technologies, delivering clean code, and creating impactful solutions.";
+
+  const summary = "I am a passionate Software Engineer with over a year of experience in full-stack development, specializing in designing and building secure, scalable, and high-performance web applications. My expertise lies in backend development, where I excel in creating RESTful APIs, implementing authentication systems, and optimizing performance using technologies like Django, FastAPI, and Spring Boot. As an ACPC finalist and competitive programmer, I have honed my problem-solving skills by tackling over 2500 algorithmic challenges on platforms like LeetCode and Codeforces.\n\nIn my professional journey, I have collaborated on innovative projects, including developing a WhatsApp chatbot for automated message handling and building a music platform backend. I am proficient in containerizing applications with Docker, managing background tasks with Celery and Redis, and ensuring code quality through rigorous testing and reviews. My passion for technology drives me to explore new tools and frameworks, deliver clean and maintainable code, and create impactful solutions that address real-world challenges.\n\nBeyond coding, I am committed to fostering collaboration, mentoring peers, and contributing to a culture of continuous learning and innovation. Whether it's leading a team to victory in a hackathon or mentoring students in competitive programming, I thrive on pushing boundaries and achieving excellence in every endeavor.";
 
   return (
     <section id="about" className="section-container py-16 px-6 relative">
@@ -167,9 +170,22 @@ function About() {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-200 shine-effect mb-8">
           About Me
         </h2>
-        <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-          {summary}
-        </p>
+        <div className="glass-effect text-[#F5F5F5] p-6 relative animate-pulse">
+          <div className="sparkle-effect" style={{ top: '10%', left: '5%' }}></div>
+          <div className="sparkle-effect" style={{ top: '20%', left: '90%' }}></div>
+          <div className="sparkle-effect" style={{ top: '70%', left: '10%' }}></div>
+          <div className="flex items-center mb-4">
+            <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          </div>
+          <pre
+            className="text-left text-sm md:text-base leading-relaxed whitespace-pre-wrap royal-copyright"
+            style={{ fontSize: '1rem', fontFamily: 'Montserrat, sans-serif' }}
+          >
+            {summary}
+          </pre>
+        </div>
       </motion.div>
     </section>
   );

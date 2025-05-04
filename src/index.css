@@ -136,7 +136,7 @@ body::after {
   margin: 0 auto;
   position: relative;
   z-index: 10;
-  padding-top: 0rem;
+  padding-top: 1.6rem;
   padding-bottom: 12rem;
 }
 
