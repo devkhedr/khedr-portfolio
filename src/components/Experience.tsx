@@ -6,7 +6,7 @@ function Experience() {
       company: 'bld.ai',
       role: 'Software Engineer',
       duration: 'Dec 2022 - Jan 2024',
-      techStack: ['ReactJS', 'Django REST Framework', 'Celery', 'Redis', 'Docker'],
+      techStack: ['Django REST Framework', 'ReactJS', 'Celery', 'Redis', 'Docker', 'GitLab'],
       description: [
         'Developed and maintained core features for multiple products using ReactJS and Django REST Framework, focusing on building RESTful APIs, authentication, and security measures.',
         'Collaborated on building a WhatsApp chatbot for automated message handling, integrating webhooks from the UltraMsg API for real-time event processing.',
@@ -19,7 +19,7 @@ function Experience() {
       company: 'bld.ai',
       role: 'Full Stack Developer Intern',
       duration: 'Aug 2022 - Nov 2022',
-      techStack: ['Django', 'ReactJS', 'Pytest'],
+      techStack: ['Django', 'ReactJS', 'Pytest', 'Git'],
       description: [
         'Gained hands-on experience in full-stack development workflows, clean code practices, and Git version control.',
         'Developed backend for a Music Platform Web App using Django and REST API.',
