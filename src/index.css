@@ -256,6 +256,7 @@ a:hover, button:hover {
   );
   background-size: 200% 100%;
   background-clip: text;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s infinite;
