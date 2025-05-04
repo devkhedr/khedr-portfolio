@@ -21,7 +21,7 @@ function About() {
       </span>
     </>
   );
-  const summary = "I'm a dedicated Full Stack Developer with a strong foundation in backend engineering, crafting robust and scalable systems using technologies like Node.js, Django, and Spring Boot. My passion for problem-solving shines through in my competitive programming journey, where I've tackled over 2500 problems on platforms like LeetCode and Codeforces, earning a spot as an ACPC Finalist. I thrive on building clean, efficient code and delivering seamless user experiences through modern frontend frameworks like React. My work blends technical expertise with creativity, aiming to push boundaries and conquer challenges in every project.";
+  const summary = "Software Engineer with over a year of experience in designing and developing scalable, secure, and high-performance web applications. A passionate backend developer with expertise in Django, FastAPI, and Spring Boot, focusing on RESTful APIs, authentication, and performance optimization. As an ACPC finalist and competitive programmer, I have solved over 2500 algorithmic problems, showcasing strong problem-solving skills and attention to detail. My technical journey includes building robust systems, containerizing applications with Docker, and collaborating on innovative projects like assistive mobile apps and music platforms. I thrive on exploring new technologies, delivering clean code, and creating impactful solutions.";
 
   return (
     <section id="about" className="section-container py-16 px-6 relative">
@@ -34,7 +34,7 @@ function About() {
         viewport={{ once: true }}
       >
         <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-gradient-to-b from-transparent via-[rgba(245,245,245,0.05)] to-transparent animate-pulse"></div>
+          {/* Removed the background gradient */}
         </div>
 
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
