@@ -4,7 +4,23 @@ import { Link } from 'react-scroll';
 import profileImage from '../assets/image.png';
 
 function About() {
-  const description = "Full Stack Developer passionate about backend engineering, problem-solving, and building clean, scalable systems. ACPC Finalist & Competitive Programmer with 2500+ problems solved across multiple platforms.";
+  const description = (
+    <>
+      Full Stack Developer passionate about backend engineering, problem-solving, and building clean, scalable systems. ACPC Finalist & Competitive Programmer with 2500+ problems solved across multiple platforms.
+      <span
+        className="blinking-cursor"
+        style={{
+          borderRight: '1px solid #F5F5F5',
+          animation: 'blink 0.75s step-end infinite',
+          whiteSpace: 'nowrap',
+          overflow: 'visible',
+          width: 'auto',
+        }}
+      >
+        
+      </span>
+    </>
+  );
   const summary = "I'm a dedicated Full Stack Developer with a strong foundation in backend engineering, crafting robust and scalable systems using technologies like Node.js, Django, and Spring Boot. My passion for problem-solving shines through in my competitive programming journey, where I've tackled over 2500 problems on platforms like LeetCode and Codeforces, earning a spot as an ACPC Finalist. I thrive on building clean, efficient code and delivering seamless user experiences through modern frontend frameworks like React. My work blends technical expertise with creativity, aiming to push boundaries and conquer challenges in every project.";
 
   return (
@@ -56,8 +72,7 @@ function About() {
               Crafting Code, Conquering Challenges
             </motion.p>
             <motion.p
-              className="text-base md:text-lg text-gray-300 typewriter mb-8"
-              style={{ borderRight: '1px solid #F5F5F5', animation: 'typing 4s steps(80, end) forwards, blink 0.75s step-end infinite', maxWidth: '100%' }}
+              className="text-base md:text-lg text-gray-300 mb-8 max-w-full"
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0 }}
@@ -132,7 +147,7 @@ function About() {
                 smooth={true}
                 duration={1000}
                 offset={-70}
-                className="gradient-button flex items-center gap-2 cursor-pointer hover:shadow-[0_0_8px_rgba(245,245,245,0.2)] transition-all duration-300"
+                className="gradient-button flex items-center gap-2 cursor-pointer hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
               >
                 <FaRocket /> Explore My Work
               </Link>

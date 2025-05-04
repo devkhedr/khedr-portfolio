@@ -4,6 +4,13 @@ import { FaGithub, FaExpand } from 'react-icons/fa';
 
 const projects = [
   {
+    title: 'Blind Guide App | Graduation Project',
+    desc: 'Assistive app for visually impaired users with real-time object and currency recognition.',
+    tech: 'Python, FastAPI, REST, Docker',
+    link: 'https://github.com/devkhedr/BlindGuideApp',
+    details: 'An assistive mobile app that helps visually impaired users with real-time object and currency recognition. Developed the backend using FastAPI, integrating WebSockets for real-time image processing and audio feedback. Maintained and deployed a YOLOv8-based object detection API.',
+  },
+  {
     title: 'User Management System',
     desc: 'Auth, profiles, and RBAC built with Spring Boot & Spring Security.',
     tech: 'Spring Boot, Spring Security, MySQL',
@@ -16,6 +23,20 @@ const projects = [
     tech: 'Django, DRF, Pytest',
     link: 'https://github.com/devkhedr/MusicPlatformWebApp',
     details: 'A music platform backend with RESTful APIs for managing artists, albums, and playlists. Includes role-based access control, comprehensive unit tests with Pytest, and a clean Django architecture.',
+  },
+  {
+    title: 'Udemy Website Clone',
+    desc: 'A clone of the Udemy website with course browsing and user authentication.',
+    tech: 'ReactJS, Udemy API',
+    link: 'https://github.com/devkhedr/udemy-website',
+    details: 'Developed a full-stack clone of the Udemy website, featuring course browsing, user authentication, and payment integration. Utilized React and Redux for the frontend, and Node.js with MongoDB for the backend.',
+  },
+  {
+    title: 'Cipher Algorithms',
+    desc: 'Implementation of various cipher algorithms for encryption and decryption.',
+    tech: 'Python, Cryptography, Web App',
+    link: 'https://github.com/devkhedr/cipher-algorithms',
+    details: 'Implemented a collection of cipher algorithms, including Caesar cipher, Vigenère cipher, and RSA encryption. Designed for educational purposes to demonstrate encryption and decryption techniques.',
   },
 ];
 
@@ -44,11 +65,11 @@ const Projects = () => {
         </p>
       </motion.div>
 
-      <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+      <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="glass-effect parallax-card p-4 rounded-lg max-w-xs mx-auto relative overflow-hidden"
+            className="glass-effect parallax-card p-4 rounded-lg max-w-md mx-auto relative overflow-hidden"
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
@@ -76,7 +97,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                   className="gradient-button flex items-center gap-2 text-sm px-3 py-1"
                 >
-                  <FaExpand /> Expand
+                  <FaExpand /> More details
                 </button>
               </div>
             </div>
@@ -86,14 +107,14 @@ const Projects = () => {
 
       {selectedProject && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-black bg-opacity-50 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSelectedProject(null)}
         >
           <motion.div
-            className="modal p-6 max-w-lg w-full"
+            className="modal p-6 max-w-lg w-full relative bg-gray-800 rounded-lg"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
@@ -102,7 +123,12 @@ const Projects = () => {
             <h3 className="text-2xl font-bold text-gray-200 shine-effect mb-4">
               {selectedProject.title}
             </h3>
-            <p className="text-gray-300 text-base mb-4">{selectedProject.details}</p>
+            <p className="text-gray-300 text-base mb-4">
+              {selectedProject.details}
+              {selectedProject.title === 'Blind Guide App' && (
+                <span className="block text-sm text-gray-400 mt-2">(Graduation Project)</span>
+              )}
+            </p>
             <p className="text-gray-200 text-sm mb-4 italic">{selectedProject.tech}</p>
             <div className="flex gap-4">
               <a

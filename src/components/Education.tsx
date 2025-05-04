@@ -6,8 +6,10 @@ function Education() {
     {
       degree: 'Bachelor of Computer Science',
       institution: 'Beni Suef University, Faculty of Computer and Artificial Intelligence',
-      duration: '2019 – 2023',
-      details: 'Excellent with honors',
+      duration: 'Sep 2019 – Jul 2023',
+      overallGrade: 'Very Good',
+      project: 'Blind Guide Mobile Application',
+      projectGrade: 'Excellent with honors',
     },
   ];
 
@@ -20,32 +22,38 @@ function Education() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl font-bold text-gray-200 shine-effect">
+        <h2 className="text-4xl font-bold text-[#F5F5F5] shine-effect">
           My Academic Journey
         </h2>
-        <p className="text-gray-300 text-lg mt-2 max-w-2xl mx-auto">
-          A creative and dynamic path through education.
+        <p className="text-[#C0C0C0] text-lg mt-2 max-w-2xl mx-auto">
+          A cosmic voyage through the stars of knowledge.
         </p>
       </motion.div>
 
-      <div className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="relative max-w-4xl mx-auto">
         {education.map((edu, index) => (
           <motion.div
             key={index}
-            className="flex items-center gap-6 bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="arch flex items-start gap-8 p-8 relative animate-pulse"
+            initial={{ opacity: 0, rotateX: 30, y: 50 }}
+            whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-yellow-400 to-gray-700 rounded-full flex items-center justify-center shadow-lg">
-              <FaGraduationCap className="text-2xl text-gray-900" />
+            <div className="sparkle-effect" style={{ top: '5%', left: '5%' }}></div>
+            <div className="sparkle-effect" style={{ top: '20%', left: '90%' }}></div>
+            <div className="sparkle-effect" style={{ top: '60%', left: '10%' }}></div>
+            <div className="sparkle-effect" style={{ top: '80%', left: '85%' }}></div>
+            <div className="flex-shrink-0 hexagon w-20 h-[92px] flex items-center justify-center">
+              <FaGraduationCap className="text-3xl text-[#F5F5F5]" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-yellow-400 mb-2">{edu.degree}</h3>
-              <p className="text-lg text-gray-300 mb-1">{edu.institution}</p>
-              <p className="text-sm text-gray-400 mb-1">{edu.duration}</p>
-              <p className="text-sm text-yellow-400">{edu.details}</p>
+              <h3 className="text-2xl font-bold text-[#F5F5F5] shine-effect mb-3">{edu.degree}</h3>
+              <p className="text-lg text-[#F5F5F5] mb-2">{edu.institution}</p>
+              <p className="text-sm text-[#C0C0C0] mb-2">{edu.duration}</p>
+              <p className="text-sm text-[#C0C0C0] mb-2">Overall Grade: {edu.overallGrade}</p>
+              <p className="text-sm text-[#F5F5F5] shine-effect mb-2">Graduation Project: {edu.project}</p>
+              <p className="text-sm text-[#C0C0C0]">Project Grade: {edu.projectGrade}</p>
             </div>
           </motion.div>
         ))}

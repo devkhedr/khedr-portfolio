@@ -2,13 +2,35 @@ import { motion } from 'framer-motion';
 
 function Achievements() {
   const achievements = [
-    'ACPC Finalist: Recognized as a finalist in the Arab Collegiate Programming Contest.',
+    'Africa & Arab Collegiate Programming Championship (ACPC) 2022 Finalist',
+    '2x Egyptian Collegiate Programming Contest (ECPC) finalist (2021, 2022)',
+    'Ranked 3rd in ECPC Qualifications 2022, 12th in 2021',
     'Solved over 2500 problems on LeetCode, Codeforces, and other platforms.',
-    'Ranked among top performers in competitive programming contests.',
     'Led team to victory in a university hackathon.',
-    'Achieved Specialist rank on Codeforces.',
-    'Earned Knight badge on LeetCode for consistent problem-solving.',
-    'Led my team to success in a regional programming contest.',
+    'Achieved Specialist rank on Codeforces.',    
+  ];
+
+  const profiles = [
+    {
+      name: 'LeetCode',
+      link: 'https://leetcode.com/u/khedr7/',
+      icon: 'https://leetcode.com/favicon.ico',
+    },
+    {
+      name: 'Codeforces',
+      link: 'https://codeforces.com/profile/Khedr',
+      icon: 'https://sta.codeforces.com/s/42207/images/codeforces-telegram-square.png', // Updated to three-color bars logo
+    },
+    {
+      name: 'CodeChef',
+      link: 'https://www.codechef.com/users/muhammed_khedr',
+      icon: 'https://www.codechef.com/favicon.ico',
+    },
+    {
+      name: 'ICPC Profile',
+      link: 'https://icpc.global/ICPCID/T274LMGTEIKL',
+      icon: 'https://icpc.global/favicon.ico',
+    },
   ];
 
   return (
@@ -24,11 +46,11 @@ function Achievements() {
           Achievements
         </h2>
         <p className="text-gray-300 text-lg mt-2 max-w-2xl mx-auto">
-          A showcase of my milestones and accomplishments.
+          A glimpse into my milestones and competitive programming journey.
         </p>
       </motion.div>
 
-      <ul className="list-disc list-inside text-gray-300 max-w-3xl mx-auto text-lg space-y-4">
+      <ul className="list-disc list-inside text-gray-300 max-w-3xl mx-auto text-lg space-y-4 mb-8">
         {achievements.map((achievement, index) => (
           <motion.li
             key={index}
@@ -43,6 +65,27 @@ function Achievements() {
           </motion.li>
         ))}
       </ul>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        {profiles.map((profile, index) => (
+          <a
+            key={index}
+            href={profile.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-effect flex flex-col items-center justify-center p-4 rounded-lg hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+          >
+            <img
+              src={profile.icon}
+              alt={profile.name}
+              className="w-12 h-12 mb-2"
+            />
+            <span className="text-gray-200 font-bold text-sm">
+              {profile.name}
+            </span>
+          </a>
+        ))}
+      </div>
     </section>
   );
 }
