@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaRocket, FaPaperPlane, FaLinkedin, FaTelegram, FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import { FaRocket, FaPaperPlane, FaLinkedin, FaTelegram, FaTwitter, FaWhatsapp, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 import profileImage from '../assets/image.png';
 
@@ -57,12 +57,13 @@ function About() {
             </motion.p>
             <motion.p
               className="text-base md:text-lg text-gray-300 typewriter mb-8"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              style={{ borderRight: '1px solid #F5F5F5', animation: 'typing 4s steps(80, end) forwards, blink 0.75s step-end infinite', maxWidth: '100%' }}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0 }}
               viewport={{ once: true }}
             >
-              Full Stack Developer passionate about backend engineering, problem-solving, and building clean, scalable systems. ACPC Finalist & Competitive Programmer with 2500+ problems solved across multiple platforms.
+              {description}
             </motion.p>
 
             <motion.div
@@ -73,10 +74,18 @@ function About() {
               viewport={{ once: true }}
             >
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:mohamed.khedr.dev@gmail.com"
                 className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
               >
-                <FaPaperPlane className="text-xl" />
+                <FaEnvelope className="text-xl" />
+              </a>
+              <a
+                href="https://github.com/devkhedr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+              >
+                <FaGithub className="text-xl" />
               </a>
               <a
                 href="https://www.linkedin.com/in/muhamed-khedr/"
@@ -93,14 +102,6 @@ function About() {
                 className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
               >
                 <FaTelegram className="text-xl" />
-              </a>
-              <a
-                href="https://www.facebook.com/khedr07"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-effect w-12 h-12 rounded-full flex items-center justify-center text-gray-200 hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
-              >
-                <FaFacebook className="text-xl" />
               </a>
               <a
                 href="https://x.com/devkhedr"
@@ -131,7 +132,7 @@ function About() {
                 smooth={true}
                 duration={1000}
                 offset={-70}
-                className="gradient-button flex items-center gap-2 cursor-pointer"
+                className="gradient-button flex items-center gap-2 cursor-pointer hover:shadow-[0_0_8px_rgba(245,245,245,0.2)] transition-all duration-300"
               >
                 <FaRocket /> Explore My Work
               </Link>
