@@ -1,72 +1,123 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import profileImage from '../assets/Ecpc-21-team.jpg'; // Placeholder image, replace with your actual image
-// Placeholder images (replace with your actual images)
-const images = [
-  { src: profileImage, caption: 'ACPC Finalist', description: 'Recognized as a finalist in the Arab Collegiate Programming Contest.' },
-  { src: profileImage, caption: '2500+ Problems Solved', description: 'Solved over 2500 problems on LeetCode, Codeforces, and other platforms.' },
-  { src: profileImage, caption: 'Top Performer', description: 'Ranked among top performers in competitive programming contests.' },
-  { src: profileImage, caption: 'Hackathon Winner', description: 'Led team to victory in a university hackathon.' },
-  { src: profileImage, caption: 'Codeforces Specialist', description: 'Achieved Specialist rank on Codeforces.' },
-  { src: profileImage, caption: 'LeetCode Knight', description: 'Earned Knight badge on LeetCode for consistent problem-solving.' },
-  { src: profileImage, caption: 'Team Lead in Contest', description: 'Led my team to success in a regional programming contest.' },
-];
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function Achievements() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const achievements = [
+    {
+      title: 'ACPC 2022 Finalist',
+      desc: 'Competed as a finalist in the Africa & Arab Collegiate Programming Championship.',
+    },
+    {
+      title: 'ECPC Finalist',
+      desc: 'Qualified for the Egyptian Collegiate Programming Contest in 2021 and 2022.',
+    },
+    {
+      title: 'ECPC Rankings',
+      desc: 'Ranked 3rd in ECPC Qualifications 2022, 12th in 2021.',
+    },
+    {
+      title: 'Problem Solving',
+      desc: 'Solved over 2500 problems on LeetCode, Codeforces, and other platforms.',
+    },
+    {
+      title: 'Hackathon Victory',
+      desc: 'Led team to victory in a university hackathon.',
+    },
+    {
+      title: 'Codeforces Specialist',
+      desc: 'Achieved Specialist rank on Codeforces.',
+    },
+  ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change every 5 seconds
-    return () => clearInterval(interval);
-  }, []);
+  const profiles = [
+    {
+      name: 'LeetCode',
+      link: 'https://leetcode.com/u/khedr7/',
+      icon: 'https://leetcode.com/favicon.ico',
+    },
+    {
+      name: 'Codeforces',
+      link: 'https://codeforces.com/profile/Khedr',
+      icon: 'https://sta.codeforces.com/s/42207/images/codeforces-telegram-square.png',
+    },
+    {
+      name: 'CodeChef',
+      link: 'https://www.codechef.com/users/muhammed_khedr',
+      icon: 'https://www.codechef.com/favicon.ico',
+    },
+    {
+      name: 'ICPC Profile',
+      link: 'https://icpc.global/ICPCID/T274LMGTEIKL',
+      icon: 'https://icpc.global/favicon.ico',
+    },
+  ];
 
-  const slideVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-    exit: { opacity: 0, x: -100, transition: { duration: 0.8, ease: 'easeOut' } },
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 },
+      },
+    ],
   };
 
   return (
-    <section id="achievements" className="section-container py-16 px-6 relative">
+    <section id="achievements" className="section-container">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-200 shine-effect">
-          Achievements Gallery
-        </h2>
-        <p className="text-gray-300 text-lg mt-2 max-w-2xl mx-auto">
-          A showcase of my milestones, captured in moments of triumph.
+        <h2 className="text-3xl md:text-4xl font-bold">Achievements</h2>
+        <p className="text-base md:text-lg text-secondary mt-2 max-w-2xl mx-auto">
+          Milestones from my competitive programming and professional journey.
         </p>
       </motion.div>
 
-      <div className="relative max-w-3xl mx-auto">
-        <motion.div
-          key={currentIndex}
-          className="glass-effect p-4 rounded-lg"
-          variants={slideVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          <img
-            src={images[currentIndex].src}
-            alt={images[currentIndex].caption}
-            className="w-full h-64 object-cover rounded-lg"
-          />
-          <div className="mt-4 text-center">
-            <h3 className="text-xl font-bold text-gray-200 shine-effect">
-              {images[currentIndex].caption}
-            </h3>
-            <p className="text-gray-300 text-base">{images[currentIndex].description}</p>
-          </div>
-        </motion.div>
-      </div>
+      <Slider {...sliderSettings} className="max-w-6xl mx-auto">
+        {achievements.map((achievement, index) => (
+          <motion.div
+            key={index}
+            className="card p-6 mx-2"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-xl font-bold">{achievement.title}</h3>
+            <p className="text-secondary">{achievement.desc}</p>
+          </motion.div>
+        ))}
+      </Slider>
+
+      <motion.div
+        className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {profiles.map((profile, index) => (
+          <a
+            key={index}
+            href={profile.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card flex flex-col items-center p-4"
+          >
+            <img src={profile.icon} alt={profile.name} className="w-12 h-12 mb-2" />
+            <span className="text-sm font-bold">{profile.name}</span>
+          </a>
+        ))}
+      </motion.div>
     </section>
   );
 }
