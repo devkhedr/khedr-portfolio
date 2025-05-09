@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const skills = [
   { name: "Django", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/django.svg", label: "Backend" },
@@ -38,47 +39,61 @@ function Skills() {
   const filteredSkills = skills.filter((skill) => skill.label === selectedLabel);
 
   return (
-    <section id="skills" className="section-container py-16 px-6 relative">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-200 shine-effect">
-          Skills
-        </h2>
-        <p className="text-gray-300 text-lg mt-2 max-w-2xl mx-auto">
+    <section id="skills" className="section-container">
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
+        <p className="text-base md:text-lg text-secondary mt-2 max-w-2xl mx-auto">
           A showcase of my technical expertise, tools, and soft skills.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="flex justify-center gap-4 mb-8">
+      <motion.div
+        className="flex justify-center gap-4 mb-8 flex-wrap"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         {labels.map((label) => (
           <button
             key={label}
             onClick={() => setSelectedLabel(label)}
             className={`gradient-button px-4 py-2 text-sm font-bold transition-all duration-300 ${
-              selectedLabel === label ? "bg-gray-700" : ""
+              selectedLabel === label ? 'opacity-100' : 'opacity-60'
             }`}
           >
             {label}
           </button>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <motion.div
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         {filteredSkills.map((skill, index) => (
-          <div
+          <motion.div
             key={index}
-            className="glass-effect flex flex-col items-center justify-center p-4 rounded-lg hover:shadow-[0_0_20px_rgba(245,245,245,0.5)] transition-all duration-300"
+            className="card flex flex-col items-center justify-center p-4"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
             <img
               src={skill.icon}
               alt={skill.name}
               className="w-12 h-12 mb-2"
             />
-            <span className="text-gray-200 font-bold text-sm">
-              {skill.name}
-            </span>
-          </div>
+            <span className="text-sm font-bold">{skill.name}</span>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
