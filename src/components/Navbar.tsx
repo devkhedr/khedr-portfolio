@@ -59,7 +59,7 @@ function Navbar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          Portfolio
+          Mohamed Khedr
         </motion.div>
         <motion.div
           className="hidden lg:flex items-center justify-center flex-grow gap-6"
