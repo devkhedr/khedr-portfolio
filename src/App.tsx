@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Experience from "./components/Experience";
@@ -9,24 +8,6 @@ import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 
 function App() {
-  useEffect(() => {
-    const currentPath = window.location.pathname;
-
-    if (currentPath === '/') {
-      window.history.replaceState(null, '', '/portfolio');
-    } else if (!currentPath.startsWith('/portfolio')) {
-      window.history.replaceState(null, '', '/portfolio');
-    }
-  }, []);
-
-  return (
-    <div>
-      <Portfolio />
-    </div>
-  );
-}
-
-function Portfolio() {
   return (
     <div>
       <Navbar />
