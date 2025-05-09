@@ -10,50 +10,53 @@ function Education() {
       overallGrade: 'Very Good',
       project: 'Blind Guide Mobile Application',
       projectGrade: 'Excellent with honors',
+      projectLink: 'https://github.com/devkhedr/blind-guide',
     },
   ];
 
   return (
-    <section id="education" className="section-container py-16 px-6 relative">
+    <section id="education" className="section-container py-16 md:py-20 px-4 md:px-6">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl font-bold text-[#F5F5F5] shine-effect">
-          My Academic Journey
-        </h2>
-        <p className="text-[#C0C0C0] text-lg mt-2 max-w-2xl mx-auto">
-          A cosmic voyage through the stars of knowledge.
+        <h2 className="text-3xl md:text-4xl font-bold">Academic Journey</h2>
+        <p className="text-base md:text-lg text-secondary mt-2 max-w-2xl mx-auto">
+          My foundation in computer science and innovation.
         </p>
       </motion.div>
 
-      <div className="relative max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {education.map((edu, index) => (
           <motion.div
             key={index}
-            className="arch flex items-start gap-8 p-8 relative animate-pulse"
-            initial={{ opacity: 0, rotateX: 30, y: 50 }}
-            whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.2, ease: 'easeOut' }}
+            className="card p-8 flex items-start gap-6"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="sparkle-effect" style={{ top: '5%', left: '5%' }}></div>
-            <div className="sparkle-effect" style={{ top: '20%', left: '90%' }}></div>
-            <div className="sparkle-effect" style={{ top: '60%', left: '10%' }}></div>
-            <div className="sparkle-effect" style={{ top: '80%', left: '85%' }}></div>
-            <div className="flex-shrink-0 hexagon w-20 h-[92px] flex items-center justify-center">
-              <FaGraduationCap className="text-3xl text-[#F5F5F5]" />
-            </div>
+            <FaGraduationCap className="text-4xl text-cyan" />
             <div>
-              <h3 className="text-2xl font-bold text-[#F5F5F5] shine-effect mb-3">{edu.degree}</h3>
-              <p className="text-lg text-[#F5F5F5] mb-2">{edu.institution}</p>
-              <p className="text-sm text-[#C0C0C0] mb-2">{edu.duration}</p>
-              <p className="text-sm text-[#C0C0C0] mb-2">Overall Grade: {edu.overallGrade}</p>
-              <p className="text-sm text-[#F5F5F5] shine-effect mb-2">Graduation Project: {edu.project}</p>
-              <p className="text-sm text-[#C0C0C0]">Project Grade: {edu.projectGrade}</p>
+              <h3 className="text-xl md:text-2xl font-bold">{edu.degree}</h3>
+              <p className="text-base md:text-lg text-secondary">{edu.institution}</p>
+              <p className="text-sm text-secondary">{edu.duration}</p>
+              <p className="text-sm text-secondary">Overall Grade: {edu.overallGrade}</p>
+              <p className="text-sm text-secondary">
+                Graduation Project:{' '}
+                <a
+                  href={edu.projectLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan hover:underline"
+                >
+                  {edu.project}
+                </a>
+              </p>
+              <p className="text-sm text-secondary">Project Grade: {edu.projectGrade}</p>
             </div>
           </motion.div>
         ))}

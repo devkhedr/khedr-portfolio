@@ -39,135 +39,122 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sections]);
 
-  const linkVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  const getOffset = () => {
+    if (window.innerWidth < 640) return -60;
+    if (window.innerWidth < 768) return -70;
+    return -80;
   };
 
   return (
     <motion.nav
       className="fixed top-0 w-full nav-glass z-50"
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="navbar-section-container flex items-center justify-between p-4">
         <motion.div
-          className="flex items-center space-x-2 text-xl font-bold text-gray-200 tracking-wide"
+          className="text-xl sm:text-2xl font-bold text-primary"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8 }}
         >
-          <span className="relative inline-block shine-effect">
-            Mohamed Khedr
-          </span>
+          Portfolio
         </motion.div>
         <motion.div
-          className="hidden md:flex items-center justify-center flex-grow"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.1 },
-            },
-          }}
-          initial="hidden"
-          animate="visible"
+          className="hidden md:flex items-center justify-center flex-grow gap-6"
         >
-          <div className="flex gap-6">
-            {sections.map((section) => (
-              <motion.div key={section.id} variants={linkVariants}>
-                <Link
-                  to={section.id}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={`text-gray-200 relative gradient-underline cursor-pointer transition-none ${
-                    activeSection === section.id ? "active-underline" : ""
-                  }`}
-                  onClick={() => setActiveSection(section.id)}
-                >
-                  {section.label}
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+          {sections.map((section) => (
+            <Link
+              key={section.id}
+              to={section.id}
+              smooth={true}
+              duration={500}
+              offset={getOffset()}
+              className={`text-secondary cursor-pointer gradient-underline text-base sm:text-lg ${
+                activeSection === section.id ? "active-underline" : ""
+              }`}
+              onClick={() => setActiveSection(section.id)}
+            >
+              {section.label}
+            </Link>
+          ))}
         </motion.div>
-        <motion.div
-          className="hidden md:flex items-center"
-          variants={linkVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div className="hidden md:flex">
           <a
             href="https://drive.google.com/file/d/1ZBpV773XtLfxQOb3X3JHB5N3vsaiVg9p/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
-            className="gradient-button flex items-center gap-2"
+            className="gradient-button flex items-center gap-2 text-base"
           >
             <FaFileDownload /> Resume
           </a>
         </motion.div>
         <div className="md:hidden" onClick={toggleNav}>
           {navOpen ? (
-            <FaTimes
-              size={24}
-              className="text-gray-200 transition-transform duration-300 rotate-180"
-            />
+            <FaTimes size={24} className="text-primary" />
           ) : (
-            <FaBars
-              size={24}
-              className="text-gray-200 transition-transform duration-300 hover:rotate-90"
-            />
+            <FaBars size={24} className="text-primary" />
           )}
         </div>
       </div>
 
-      {/* Mobile menu */}
       {navOpen && (
         <motion.div
-          className="md:hidden mobile-menu flex flex-col items-center gap-4 py-6"
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 md:hidden flex items-start justify-center pt-20 bg-black/70 backdrop-blur-[10px]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setNavOpen(false);
+          }}
         >
-          {sections.map((section, index) => (
-            <motion.div
-              key={section.id}
-              className="glass-effect p-3 rounded-lg w-3/4 text-center hover:scale-105 hover:shadow-[0_0_15px_rgba(245,245,245,0.4)] transition-all duration-300"
+          <motion.div
+            className="bg-[#181A20] bg-opacity-95 flex flex-col items-center gap-6 py-8 w-[90%] max-w-md mx-4 rounded-2xl border border-secondary/20 shadow-xl"
+            initial={{ scale: 0.8, y: -50 }}
+            animate={{ scale: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {sections.map((section, index) => (
+              <motion.div
+                key={section.id}
+                className="w-full px-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
+                <Link
+                  to={section.id}
+                  smooth={true}
+                  duration={500}
+                  offset={getOffset()}
+                  className={`block py-3 text-center text-lg font-semibold transition-all duration-300 ${
+                    activeSection === section.id 
+                      ? "text-primary gradient-button" 
+                      : "text-secondary hover:text-primary"
+                  }`}
+                  onClick={() => {
+                    setNavOpen(false);
+                    setActiveSection(section.id);
+                  }}
+                >
+                  {section.label}
+                </Link>
+              </motion.div>
+            ))}
+            <motion.a
+              href="https://drive.google.com/file/d/1ZBpV773XtLfxQOb3X3JHB5N3vsaiVg9p/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gradient-button flex items-center gap-2 w-full justify-center text-base"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              transition={{ duration: 0.3, delay: sections.length * 0.1 }}
             >
-              <Link
-                to={section.id}
-                smooth={true}
-                duration={500}
-                offset={-100}
-                className={`text-gray-200 ${
-                  activeSection === section.id ? "active-underline" : ""
-                }`}
-                onClick={() => {
-                  setNavOpen(false);
-                  setActiveSection(section.id);
-                }}
-              >
-                {section.label}
-              </Link>
-            </motion.div>
-          ))}
-          <motion.a
-            href="https://drive.google.com/file/d/1ZBpV773XtLfxQOb3X3JHB5N3vsaiVg9p/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gradient-button flex items-center gap-2 w-3/4 justify-center"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: sections.length * 0.1 }}
-          >
-            <FaFileDownload /> Resume
-          </motion.a>
+              <FaFileDownload /> Resume
+            </motion.a>
+          </motion.div>
         </motion.div>
       )}
     </motion.nav>
