@@ -6,7 +6,7 @@ import SocialIcons from './SocialIcons';
 
 function About() {
   const tagline = 'Crafting impactful solutions through code and creativity.';
-  const description = 'A dedicated Software Engineer with over a year of experience in full-stack development, focused on building secure, scalable, and high-performance web applications. Passionate about backend architecture, problem-solving, and delivering clean code.';
+  const description = 'A dedicated Software Engineer with over a year of experience in full-stack development, focused on building secure and high-quality web applications. Strong problem-solving skills as an ACPC finalist, with a passion for backend architecture, performance optimization, and exploring new technologies.';
   const summary = {
     mobile: `I’m a Software Engineer specializing in full-stack development with a focus on backend technologies like Django, FastAPI, and Spring Boot. As an ACPC finalist, I’ve solved over 2500 algorithmic challenges, honing my problem-solving skills. My projects include a WhatsApp chatbot and a music platform backend, using tools like Docker and Redis. Let’s connect to build something amazing!`,
     desktop: `I’m a Software Engineer with a knack for building secure and scalable web applications. With over a year of experience in full-stack development, I specialize in backend technologies like Django, FastAPI, and Spring Boot, creating RESTful APIs and optimizing performance. As an ACPC finalist and competitive programmer, I’ve solved over 2500 algorithmic challenges on platforms like LeetCode and Codeforces, sharpening my problem-solving skills.
@@ -15,7 +15,7 @@ My professional journey includes innovative projects like a WhatsApp chatbot for
   };
 
   return (
-    <section id="about" className="section-container">
+    <section id="about" className="section-container pt-28 sm:pt-36">
       <motion.div
         className="flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-12 mb-16 lg:mb-20"
         initial={{ opacity: 0 }}

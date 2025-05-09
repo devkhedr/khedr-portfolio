@@ -62,7 +62,7 @@ function Navbar() {
           Portfolio
         </motion.div>
         <motion.div
-          className="hidden md:flex items-center justify-center flex-grow gap-6"
+          className="hidden lg:flex items-center justify-center flex-grow gap-6"
         >
           {sections.map((section) => (
             <Link
@@ -80,7 +80,7 @@ function Navbar() {
             </Link>
           ))}
         </motion.div>
-        <motion.div className="hidden md:flex">
+        <motion.div className="hidden lg:flex">
           <a
             href="https://drive.google.com/file/d/1ZBpV773XtLfxQOb3X3JHB5N3vsaiVg9p/view?usp=drive_link"
             target="_blank"
@@ -90,7 +90,7 @@ function Navbar() {
             <FaFileDownload /> Resume
           </a>
         </motion.div>
-        <div className="md:hidden" onClick={toggleNav}>
+        <div className="lg:hidden" onClick={toggleNav}>
           {navOpen ? (
             <FaTimes size={24} className="text-primary" />
           ) : (
@@ -101,7 +101,7 @@ function Navbar() {
 
       {navOpen && (
         <motion.div
-          className="fixed inset-0 z-50 md:hidden flex items-start justify-center pt-20 bg-black/70 backdrop-blur-[10px]"
+          className="fixed inset-0 z-50 lg:hidden flex items-start justify-center pt-20 bg-black/70 backdrop-blur-[10px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

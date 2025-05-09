@@ -37,6 +37,22 @@ body::before {
   z-index: -1;
 }
 
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 20% 30%, #3a6ea7 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, #7b5fa1 0%, transparent 60%),
+              radial-gradient(circle at 50% 90%, #3e4c6d 0%, transparent 70%);
+  opacity: 0.13;
+  animation: bg-move 18s linear infinite alternate;
+}
+
 .section-container {
   max-width: 1280px;
   margin: 0 auto;
@@ -298,4 +314,25 @@ textarea {
   0% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.05); opacity: 1; }
   100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes bg-move {
+  0% {
+    background-position:
+      20% 30%,
+      80% 70%,
+      50% 90%;
+  }
+  50% {
+    background-position:
+      25% 35%,
+      75% 65%,
+      55% 85%;
+  }
+  100% {
+    background-position:
+      20% 30%,
+      80% 70%,
+      50% 90%;
+  }
 }
