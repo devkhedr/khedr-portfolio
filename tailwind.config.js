@@ -19,44 +19,53 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "var(--border, #333333)",
+        input: "var(--input, #E0E0E0)",
+        ring: "var(--ring, #00529F)",
+        background: "var(--bg-primary, #0A0A0A)",
+        foreground: "var(--text-primary, #E0E0E0)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--text-primary, #E0E0E0)",
+          foreground: "var(--bg-primary, #0A0A0A)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--text-secondary, #A0A0A0)",
+          foreground: "var(--bg-primary, #0A0A0A)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "hsl(var(--destructive, 0 84% 60%))",
+          foreground: "hsl(var(--destructive-foreground, 0 0% 98%))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--text-secondary, #A0A0A0)",
+          foreground: "var(--text-primary, #E0E0E0)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "var(--accent-primary, #00D4FF)",
+          foreground: "var(--text-primary, #E0E0E0)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--bg-primary, #0A0A0A)",
+          foreground: "var(--text-primary, #E0E0E0)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--bg-primary, #0A0A0A)",
+          foreground: "var(--text-primary, #E0E0E0)",
+        },
+        real: {
+          white: "#FFFFFF",
+          blue: "#00529F",
+          gold: "#F5C107",
+          gray: {
+            dark: "#333333", // Reverted to original gray
+            light: "#666666",
+          },
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "var(--radius, 0.5rem)",
+        md: "calc(var(--radius, 0.5rem) - 2px)",
+        sm: "calc(var(--radius, 0.5rem) - 4px)",
       },
       keyframes: {
         "accordion-down": {
@@ -75,4 +84,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

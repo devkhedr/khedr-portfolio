@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaFileDownload } from "react-icons/fa";
+import { useState, useEffect, useContext } from "react";
+import { FaBars, FaTimes, FaFileDownload, FaSun, FaMoon } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
+import { ThemeContext } from "../App";
 
 function Navbar() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [navOpen, setNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const toggleNav = () => setNavOpen(!navOpen);
@@ -71,8 +73,8 @@ function Navbar() {
               smooth={true}
               duration={500}
               offset={getOffset()}
-              className={`text-secondary cursor-pointer gradient-underline text-base sm:text-lg ${
-                activeSection === section.id ? "active-underline" : ""
+              className={`text-secondary cursor-pointer gradient-underline text-base sm:text-lg hover:text-accent ${
+                activeSection === section.id ? "active-underline text-primary" : ""
               }`}
               onClick={() => setActiveSection(section.id)}
             >
@@ -80,7 +82,21 @@ function Navbar() {
             </Link>
           ))}
         </motion.div>
-        <motion.div className="hidden lg:flex">
+        <motion.div className="hidden lg:flex items-center gap-4">
+          <motion.button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary hover:bg-gradient-to-r hover:from-accent-secondary hover:to-accent-primary"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            whileTap={{ scale: 0.9 }}
+            animate={{ rotate: theme === "dark" ? 0 : 180 }}
+            transition={{ duration: 0.3 }}
+          >
+            {theme === "dark" ? (
+              <FaSun size={20} className="theme-toggle-icon" />
+            ) : (
+              <FaMoon size={20} className="theme-toggle-icon" />
+            )}
+          </motion.button>
           <a
             href="https://drive.google.com/file/d/1ZBpV773XtLfxQOb3X3JHB5N3vsaiVg9p/view?usp=drive_link"
             target="_blank"
@@ -90,12 +106,28 @@ function Navbar() {
             <FaFileDownload /> Resume
           </a>
         </motion.div>
-        <div className="lg:hidden" onClick={toggleNav}>
-          {navOpen ? (
-            <FaTimes size={24} className="text-primary" />
-          ) : (
-            <FaBars size={24} className="text-primary" />
-          )}
+        <div className="lg:hidden flex items-center gap-4">
+          <motion.button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary hover:bg-gradient-to-r hover:from-accent-secondary hover:to-accent-primary"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            whileTap={{ scale: 0.9 }}
+            animate={{ rotate: theme === "dark" ? 0 : 180 }}
+            transition={{ duration: 0.3 }}
+          >
+            {theme === "dark" ? (
+              <FaSun size={20} className="theme-toggle-icon" />
+            ) : (
+              <FaMoon size={20} className="theme-toggle-icon" />
+            )}
+          </motion.button>
+          <div onClick={toggleNav}>
+            {navOpen ? (
+              <FaTimes size={24} className="text-primary" />
+            ) : (
+              <FaBars size={24} className="text-primary" />
+            )}
+          </div>
         </div>
       </div>
 
@@ -110,7 +142,7 @@ function Navbar() {
           }}
         >
           <motion.div
-            className="bg-[#181A20] bg-opacity-95 flex flex-col items-center gap-6 py-8 w-[90%] max-w-md mx-4 rounded-2xl border border-secondary/20 shadow-xl"
+            className="bg-background bg-opacity-95 flex flex-col items-center gap-6 py-8 w-[90%] max-w-md mx-4 rounded-2xl border border-secondary/20 shadow-xl"
             initial={{ scale: 0.8, y: -50 }}
             animate={{ scale: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -130,9 +162,9 @@ function Navbar() {
                   duration={500}
                   offset={getOffset()}
                   className={`block py-3 text-center text-lg font-semibold transition-all duration-300 ${
-                    activeSection === section.id 
-                      ? "text-primary gradient-button" 
-                      : "text-secondary hover:text-primary"
+                    activeSection === section.id
+                      ? "text-primary gradient-button"
+                      : "text-secondary hover:text-accent"
                   }`}
                   onClick={() => {
                     setNavOpen(false);
