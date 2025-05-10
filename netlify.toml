@@ -1,0 +1,6 @@
+# Netlify settings for continuous deployment
+[build]
+  # Directory to publish (relative to root of your repo)
+  publish = "dist"
+  # Default build command
+  command = "npm run build"
