@@ -69,7 +69,7 @@ function Experience() {
               {exp.techStack.map((tech, i) => (
                 <span
                   key={i}
-                  className="px-3 py-1 text-xs md:text-sm font-semibold bg-gradient-to-r from-cyan to-magenta text-white rounded-full"
+                  className="px-3 py-1 text-xs md:text-sm font-semibold bg-gradient-to-r from-cyan to-magenta dark:text-white text-black rounded-full"
                 >
                   {tech}
                 </span>
